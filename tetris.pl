@@ -1,11 +1,11 @@
 lanzarPieza(Columna):-
-    contador(columna,N),
-    retractall(contador(columna,N)),
+    contador(Columna,N),
+    retractall(contador(Columna,N)),
     N4 is N + 4,
-    assert(contador(columna,N4)),
+    assert(contador(Columna,N4)).
 
 imborrable:-
-    contador(columna,N), N =:= 0,
+    contador(columna,N), N =:= 0.
 
 borrarFila:-
     \+imborrable,
