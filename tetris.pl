@@ -1,11 +1,12 @@
+
 lanzarPieza(Columna):-
-    contador(columna,N),
-    retractall(contador(columna,N)),
+    contador(Columna,N),
+    retractall(contador(Columna,N)),
     N4 is N + 4,
-    assert(contador(columna,N4)),
+    assert(contador(Columna,N4)).
 
 imborrable:-
-    contador(columna,N), N =:= 0,
+    contador(Columna,N), N =:= 0.
 
 borrarFila:-
     \+imborrable,
@@ -16,14 +17,14 @@ decrementarTodos:-
 
 decrementarTodos(0).
 decrementarTodos(Columna):-
-    columna > 0,
+    Columna > 0,
     decrementar(Columna),
     Columna1 is Columna - 1,
     decrementarTodos(Columna1).
 
 decrementar(Columna):-
     contador(Columna,N),
-    retractall(contador(Columna,N)),
+    retractall(contador(Columna,N1)),
     N1 is N - 1,
     assert(contador(Columna,N1)).
     
