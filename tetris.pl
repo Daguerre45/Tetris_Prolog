@@ -25,33 +25,15 @@ lanzarPiezaCuadrado(Columna):-
     assert(contador(Columna,N2)),
     assert(contador(Columna2,N3)).
 
-lanzarPiezaLDerecha(Columna):-
-    \+ Columna = 10, %si la columna es 10 no se puede lanzar la pieza cuadrada
-    Columna2 is Columna + 1,
-    contador(Columna,N), %N es el numero de huecos que hay ocupados en la columna EN REALIDAD ES (X,Y)
-    contador(Columna2,N1),
-    retractall(contador(Columna,N)), %parte vertical de la L
-    retractall(contador(Columna2,N1)), %parte horizontal de la L
-    N2 is N + 3, %le sumo 4 ya que meto la pieza vertical
-    N3 is N1 + 1,
-    N2 =< 16, %si no se sale de la cuadricula
-    N3 =< 16, %si no se sale de la cuadricula
-    assert(contador(Columna,N2)),
-    assert(contador(Columna2,N3)).
 
-lanzarPiezaLIzquierda(Columna):-
-    \+ Columna = 1, %si la columna es 10 no se puede lanzar la pieza cuadrada
-    Columna2 is Columna - 1,
-    contador(Columna,N), %N es el numero de huecos que hay ocupados en la columna EN REALIDAD ES (X,Y)
-    contador(Columna2,N1),
-    retractall(contador(Columna,N)), %parte vertical de la L
-    retractall(contador(Columna2,N1)), %parte horizontal de la L
-    N2 is N + 3, %le sumo 4 ya que meto la pieza vertical
-    N3 is N1 + 1,
-    N2 =< 16, %si no se sale de la cuadricula
-    N3 =< 16, %si no se sale de la cuadricula
-    assert(contador(Columna,N2)),
-    assert(contador(Columna2,N3)).
+lanzamientoValidoCuadrado(Cuadrado,Columna, Fila):-
+    Columna1 is Columna + 1,
+    alturaMaxima(Columna, Columna1, Fila),
+    assert(casillaOcupada(Columna,Fila)),
+    assert(casillaOcupada(Columna1,Fila)),
+    Fila1 is Fila +1,
+    assert(casillaOcupada(Columna,Fila1)),
+    assert(casillaOcupada(Columna1,Fila1)).
 
 imborrable:-
 <<<<<<< HEAD
