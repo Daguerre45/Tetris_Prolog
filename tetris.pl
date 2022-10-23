@@ -3,8 +3,6 @@
 :- dynamic contador/2.
 
 %en la columna x lanzar pieza
-lanzarPieza(Columna):-
-    contador(Columna,N), %N es el numero de huecos que hay ocupados en la columna
 lanzarPiezaVertical(Columna):-
     contador(Columna,N), %N es el numero de huecos que hay ocupados en la columna EN REALIDAD ES (X,Y)
     retractall(contador(Columna,N)),
@@ -19,7 +17,7 @@ lanzarPiezaCuadrado(Columna):-
     contador(Columna2,N1),
     retractall(contador(Columna,N)),
     retractall(contador(Columna2,N1)),
-    N2 is N + 2, %le sumo 4 ya que meto la pieza vertical
+    N2 is N + 2, 
     N3 is N1 + 2,
     N2 =< 16, %si no se sale de la cuadricula
     N3 =< 16, %si no se sale de la cuadricula
@@ -33,7 +31,7 @@ lanzarPiezaLDerecha(Columna):-
     contador(Columna2,N1),
     retractall(contador(Columna,N)), %parte vertical de la L
     retractall(contador(Columna2,N1)), %parte horizontal de la L
-    N2 is N + 3, %le sumo 4 ya que meto la pieza vertical
+    N2 is N + 3, 
     N3 is N1 + 1,
     N2 =< 16, %si no se sale de la cuadricula
     N3 =< 16, %si no se sale de la cuadricula
@@ -47,7 +45,7 @@ lanzarPiezaLIzquierda(Columna):-
     contador(Columna2,N1),
     retractall(contador(Columna,N)), %parte vertical de la L
     retractall(contador(Columna2,N1)), %parte horizontal de la L
-    N2 is N + 3, %le sumo 4 ya que meto la pieza vertical
+    N2 is N + 3, 
     N3 is N1 + 1,
     N2 =< 16, %si no se sale de la cuadricula
     N3 =< 16, %si no se sale de la cuadricula
@@ -65,11 +63,8 @@ borrarFila:-
 
 decrementarTodos:-
     decrementar(10).
-
-@@ -27,11 +70,20 @@
     Columna1 is Columna - 1,
     decrementarTodos(Columna1).
-
 
 decrementar(Columna):-
     contador(Columna,N),
