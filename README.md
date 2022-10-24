@@ -23,6 +23,7 @@ Para lanzar una pieza vertical lo que haremos será pasarle únicamente la colum
 
 ```cmd
 lanzarPiezaVertical(1). %Lanza la pieza vertical en la columna 1
+lanzarPiezaVertical(X). %Te aparecen todas las columnas donde puedes colocar esta pieza
 ```
 ```prolog
 lanzarPiezaVertical(Columna):-
@@ -39,6 +40,10 @@ lanzarPiezaVertical(Columna):-
 
 Para lanzar la pieza cuadrada lo que haremos será pasarle nuevamente una columna en la que se quiere colocar la pieza, dicha columna será donde se coloque la parte izquierda del cubo. Al confugurarlo de dicha manera esta pieza no se puede poner en la columna 10 ya que se saldría del tablero y ocuparía parte de la columna 10 y de la columna 11, la cual es inexistente. Luego lo que hace es coger la columna que tiene a la derecha para poder añadir los dos huecos que ocupa el cuadrado en cada columna. 
 
+```cmd
+lanzarPiezaCuadrado(1). %Lanza la pieza cuadrado y ocupara la columna 1 y 2
+lanzarPiezaCuadrado(X). %Te aparecen todas las columnas donde puedes colocar esta pieza
+```
 
 ```prolog
 lanzarPiezaCuadrado(Columna):-
@@ -60,6 +65,13 @@ lanzarPiezaCuadrado(Columna):-
 ![Image text](https://github.com/Daguerre45/Tetris_Prolog/blob/main/im%C3%A1genes/pieza_Lizquierda.png)
 
 Para lanzar una pieza en forma de L tanto sea hacia la derecha como hacia la izquierda seguiremos la mísma técnica del cubo, le pasaremos una columna que será donde se coloque la parte vertical de la pieza y dependiendo de si es hacia la derecha o hacia la izquierda la L pues sumareos una columna o se la restaremos para sumar al contador ambas partes de la pieza.
+
+```cmd
+lanzarPiezaLDerecha(1). %Lanza la pieza L en la columna 1 y 2
+lanzarPiezaLDerecha(X). %Te aparecen todas las columnas donde puedes colocar esta pieza
+lanzarPiezaLIzquierda(2). %Lanza la pieza L en la columna 2 y 1
+lanzarPiezaLIzquierda(X). %Te aparecen todas las columnas donde puedes colocar esta pieza
+```
 
 ```prolog
 lanzarPiezaLDerecha(Columna):-
