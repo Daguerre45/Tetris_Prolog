@@ -62,7 +62,7 @@ borrarFila:-
 
 
 decrementarTodos:-
-    decrementar(10).
+    decrementar(10),
     Columna1 is Columna - 1,
     decrementarTodos(Columna1).
 
